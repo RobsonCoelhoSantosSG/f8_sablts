@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public enum UpdateGroupName
 {
+    Realtime,
     Time2,
     Time5
 }
@@ -34,8 +34,9 @@ public static class UpdateManager
         updateGroups[groupName].OnUpdate -= updatable.OnUpdate;
     }
 
-    [RuntimeInitializeOnLoadMethod]
+    //[RuntimeInitializeOnLoadMethod]
     public static void Init() {
+        CreateGroup(UpdateGroupName.Realtime, 0.016f, true);
         CreateGroup(UpdateGroupName.Time2, 2f, true);
         CreateGroup(UpdateGroupName.Time5, 5f, true);
     }

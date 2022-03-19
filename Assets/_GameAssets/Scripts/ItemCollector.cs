@@ -5,12 +5,12 @@ using UnityEngine;
 public class ItemCollector : MonoBehaviour
 {
     [SerializeField] KeyCode key;
-    [SerializeField] Inventory inventory;
+    [SerializeField] InventoryEvents inventory;
     ItemObj currentItem;
 
     private void Update() {
         if (Input.GetKeyDown(key) && currentItem) {
-            inventory.AddItem(currentItem.itemData);
+            InventorySystem.AddItem(currentItem.itemData);
             Destroy(currentItem.gameObject);
         }
     }

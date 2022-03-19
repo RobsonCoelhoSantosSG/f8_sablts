@@ -5,13 +5,12 @@ using TMPro;
 
 public class InventoryListVisual : MonoBehaviour
 {
-    [SerializeField] Inventory inventory;
     [SerializeField] TextMeshProUGUI list;
 
     void Update() {
         list.text = "";
 
-        foreach (var item in inventory.items) {
+        foreach (var item in InventorySystem.Items) {
             list.text += item.Key.itemName + " x" + item.Value + "\n" ;
         }
     }
